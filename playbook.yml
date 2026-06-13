@@ -1,6 +1,5 @@
----
-# Anfernee's Dotfiles Playbook
-# Usage: ansible-playbook playbook.yml --ask-become-pass
+# PLAYBOOK: Setup local development environment
+# USAGE: ansible-playbook playbook.yml --ask-become-pass
 
 - name: Configure development environment
   hosts: localhost
