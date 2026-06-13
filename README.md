@@ -21,7 +21,7 @@ This will:
 | **Shell** | Zsh + Oh My Zsh (theme: `bira`) |
 | **Plugins** | `zsh-autosuggestions`, `zsh-syntax-highlighting` |
 | **Custom Themes** | Sonokai Atlantis (`sanakai`, `sonokai`, `ys-dark`) |
-| **Editor** | Neovim + LazyVim (colorscheme: Sonokai Atlantis) |
+| **Editor** | Neovim + LazyVim (colorscheme: Everforest) |
 | **Multiplexer** | Tmux (prefix: `Ctrl+Space`, vim keybinds) |
 | **Font** | JetBrains Mono Nerd Font |
 | **Node** | NVM + Node.js 20 LTS |
@@ -41,7 +41,7 @@ Roles run in this order:
 4. git      → .gitconfig + .gitignore_global
 5. tmux     → .tmux.conf (Ctrl+Space, vim splits, status styling)
 6. node     → NVM + Node.js 20
-7. neovim   → Neovim + full LazyVim config + Sonokai Atlantis
+7. neovim   → Neovim + full LazyVim config + Everforest
 8. tools    → uv, lazygit, bun, opencode config
 ```
 
@@ -68,34 +68,34 @@ aws configure
 If you're on WSL, add this color scheme to your Windows Terminal `settings.json`:
 
 <details>
-<summary>Sonokai Atlantis — Windows Terminal scheme</summary>
+<summary>Everforest — Windows Terminal scheme</summary>
 
 Add to `"schemes"` array:
 ```json
 {
-    "name": "Sonokai Atlantis",
-    "background": "#2a2f38",
-    "foreground": "#e1e3e4",
-    "black": "#181a1c",
-    "red": "#ff6578",
-    "green": "#9dd274",
-    "yellow": "#eacb64",
-    "blue": "#72cce8",
-    "purple": "#ba9cf3",
-    "cyan": "#f69c5e",
-    "white": "#e1e3e4",
-    "brightBlack": "#2a2f38",
-    "brightRed": "#ff6578",
-    "brightGreen": "#9dd274",
-    "brightYellow": "#eacb64",
-    "brightBlue": "#72cce8",
-    "brightPurple": "#ba9cf3",
-    "brightCyan": "#f69c5e",
-    "brightWhite": "#e1e3e4"
+    "name": "Everforest",
+    "background": "#2D353B",
+    "foreground": "#D3C6AA",
+    "black": "#475054",
+    "red": "#E67E80",
+    "green": "#A7C080",
+    "yellow": "#DBBC7F",
+    "blue": "#7FBBB3",
+    "purple": "#D699B6",
+    "cyan": "#83C092",
+    "white": "#D3C6AA",
+    "brightBlack": "#475054",
+    "brightRed": "#E67E80",
+    "brightGreen": "#A7C080",
+    "brightYellow": "#DBBC7F",
+    "brightBlue": "#7FBBB3",
+    "brightPurple": "#D699B6",
+    "brightCyan": "#83C092",
+    "brightWhite": "#D3C6AA"
 }
 ```
 
-Then set `"colorScheme": "Sonokai Atlantis"` in your Debian profile.
+Then set `"colorScheme": "Everforest"` in your Debian profile.
 
 </details>
 
