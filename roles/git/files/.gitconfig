@@ -1,0 +1,9 @@
+[user]
+	name = AnferneeDev
+	email = anfernee.developer@gmail.com
+
+[core]
+	excludesfile = ~/.gitignore_global
+
+[alias]
+	save = !git add . && git commit -m

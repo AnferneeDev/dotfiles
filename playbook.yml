@@ -1,0 +1,18 @@
+---
+# Anfernee's Dotfiles Playbook
+# Usage: ansible-playbook playbook.yml --ask-become-pass
+
+- name: Configure development environment
+  hosts: localhost
+  connection: local
+  gather_facts: true
+
+  roles:
+    - base
+    - fonts
+    - zsh
+    - git
+    - tmux
+    - node
+    - neovim
+    - tools

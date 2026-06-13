@@ -1,0 +1,40 @@
+---
+- name: Check if Neovim is installed
+  ansible.builtin.command: nvim --version
+  register: nvim_check
+  changed_when: false
+  failed_when: false
+
+- name: Download Neovim AppImage
+  ansible.builtin.get_url:
+    url: https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
+    dest: /tmp/nvim.appimage
+    mode: '0755'
+  when: nvim_check.rc != 0
+
+- name: Install Neovim
+  become: true
+  ansible.builtin.shell: |
+    cd /tmp
+    chmod u+x nvim.appimage
+    ./nvim.appimage --appimage-extract
+    mv squashfs-root /opt/nvim
+    ln -sf /opt/nvim/usr/bin/nvim /usr/local/bin/nvim
+  args:
+    creates: /usr/local/bin/nvim
+  when: nvim_check.rc != 0
+
+- name: Create Neovim config directory
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/nvim/lua/{{ item }}"
+    state: directory
+    mode: '0755'
+  loop:
+    - config
+    - plugins
+
+- name: Deploy Neovim config files
+  ansible.builtin.copy:
+    src: nvim/
+    dest: "{{ ansible_env.HOME }}/.config/nvim/"
+    mode: '0644'

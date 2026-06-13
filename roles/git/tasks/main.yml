@@ -1,0 +1,14 @@
+---
+- name: Deploy .gitconfig
+  ansible.builtin.copy:
+    src: .gitconfig
+    dest: "{{ ansible_env.HOME }}/.gitconfig"
+    backup: true
+    mode: '0644'
+
+- name: Deploy .gitignore_global
+  ansible.builtin.copy:
+    src: .gitignore_global
+    dest: "{{ ansible_env.HOME }}/.gitignore_global"
+    backup: true
+    mode: '0644'

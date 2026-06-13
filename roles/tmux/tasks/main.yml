@@ -1,0 +1,7 @@
+---
+- name: Deploy .tmux.conf
+  ansible.builtin.copy:
+    src: .tmux.conf
+    dest: "{{ ansible_env.HOME }}/.tmux.conf"
+    backup: true
+    mode: '0644'

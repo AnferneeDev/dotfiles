@@ -1,0 +1,18 @@
+# Ansible
+*.retry
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# AI
+.gemini/
+.cursor/
+.copilot/

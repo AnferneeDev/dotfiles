@@ -1,0 +1,72 @@
+---
+# --- uv (Python package manager) ---
+- name: Check if uv is installed
+  ansible.builtin.command: uv --version
+  register: uv_check
+  changed_when: false
+  failed_when: false
+
+- name: Install uv
+  ansible.builtin.shell: curl -LsSf https://astral.sh/uv/install.sh | sh
+  args:
+    creates: "{{ ansible_env.HOME }}/.local/bin/uv"
+  when: uv_check.rc != 0
+
+# --- LazyGit ---
+- name: Check if lazygit is installed
+  ansible.builtin.command: lazygit --version
+  register: lazygit_check
+  changed_when: false
+  failed_when: false
+
+- name: Get latest lazygit version
+  ansible.builtin.uri:
+    url: https://api.github.com/repos/jesseduffield/lazygit/releases/latest
+    return_content: true
+  register: lazygit_release
+  when: lazygit_check.rc != 0
+
+- name: Install lazygit
+  become: true
+  ansible.builtin.shell: |
+    LAZYGIT_VERSION="{{ (lazygit_release.json.tag_name | default('v0.44.1'))[1:] }}"
+    curl -Lo /tmp/lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+    tar xf /tmp/lazygit.tar.gz -C /tmp lazygit
+    install /tmp/lazygit /usr/local/bin
+  args:
+    creates: /usr/local/bin/lazygit
+  when: lazygit_check.rc != 0
+
+# --- Bun ---
+- name: Check if bun is installed
+  ansible.builtin.command: "{{ ansible_env.HOME }}/.bun/bin/bun --version"
+  register: bun_check
+  changed_when: false
+  failed_when: false
+
+- name: Install bun
+  ansible.builtin.shell: curl -fsSL https://bun.sh/install | bash
+  args:
+    creates: "{{ ansible_env.HOME }}/.bun/bin/bun"
+  when: bun_check.rc != 0
+
+# --- OpenCode config ---
+- name: Create OpenCode config directory
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/opencode"
+    state: directory
+    mode: '0755'
+
+- name: Deploy OpenCode config
+  ansible.builtin.copy:
+    src: opencode.json
+    dest: "{{ ansible_env.HOME }}/.config/opencode/opencode.json"
+    backup: true
+    mode: '0644'
+
+# --- LazyGit config directory ---
+- name: Create lazygit config directory
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/lazygit"
+    state: directory
+    mode: '0755'

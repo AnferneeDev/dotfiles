@@ -1,0 +1,27 @@
+GEMINI.md
+CONTEXT.md
+.memignore
+opencode.json
+.opencode/
+
+# AI-related folders and files
+.gemini/
+.cursor/
+.copilot/
+.copilot-instructions
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+*.log
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Keys and certificates
+*.pem
