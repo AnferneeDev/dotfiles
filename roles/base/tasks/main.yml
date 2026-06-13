@@ -36,7 +36,6 @@
       - gcc
       - gcc-c++
       - make
-      - curl
       - wget
       - git
       - gnupg2
