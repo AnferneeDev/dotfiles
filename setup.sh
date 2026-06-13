@@ -15,8 +15,15 @@ echo ""
 
 # DEPENDENCY INSTALLATION: Install git and ansible
 echo "[INIT] Installing git and ansible..."
-sudo apt update -qq
-sudo apt install -y -qq git ansible > /dev/null 2>&1
+if command -v apt-get &>/dev/null; then
+  sudo apt update -qq
+  sudo apt install -y -qq git ansible > /dev/null 2>&1
+elif command -v dnf &>/dev/null; then
+  sudo dnf install -y -q git ansible > /dev/null 2>&1
+else
+  echo "[ERROR] Unsupported package manager. Please install git and ansible manually."
+  exit 1
+fi
 echo "[OK] git and ansible installed"
 
 # REPOSITORY CLONING: Clone dotfiles from GitHub
