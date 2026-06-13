@@ -24,4 +24,5 @@
       - fd-find
       - zsh
       - tmux
+      - fontconfig
     state: present
