@@ -1,4 +1,4 @@
-# 🚀 Anfernee's Dotfiles
+# Anfernee's Dotfiles
 
 > One command. Any Debian/Ubuntu machine. Ready to code.
 
