@@ -21,7 +21,7 @@ This will:
 | **Shell** | Zsh + Oh My Zsh (theme: `bira`) |
 | **Plugins** | `zsh-autosuggestions`, `zsh-syntax-highlighting` |
 | **Custom Themes** | Sonokai Atlantis (`sanakai`, `sonokai`, `ys-dark`) |
-| **Editor** | Neovim + LazyVim (colorscheme: Everforest) |
+| **Editor** | Neovim + LazyVim (colorscheme: Rosé Pine Dawn) |
 | **Multiplexer** | Tmux (prefix: `Ctrl+Space`, vim keybinds) |
 | **Font** | JetBrains Mono Nerd Font |
 | **Node** | NVM + Node.js 20 LTS |
@@ -41,7 +41,7 @@ Roles run in this order:
 4. git      → .gitconfig + .gitignore_global
 5. tmux     → .tmux.conf (Ctrl+Space, vim splits, status styling)
 6. node     → NVM + Node.js 20
-7. neovim   → Neovim + full LazyVim config + Everforest
+7. neovim   → Neovim + full LazyVim config + Rosé Pine Dawn
 8. tools    → uv, lazygit, bun, opencode config
 ```
 
@@ -68,34 +68,36 @@ aws configure
 If you're on WSL, add this color scheme to your Windows Terminal `settings.json`:
 
 <details>
-<summary>Everforest — Windows Terminal scheme</summary>
+<summary>Rosé Pine Dawn (Pinker) — Windows Terminal scheme</summary>
 
 Add to `"schemes"` array:
 ```json
 {
-    "name": "Everforest",
-    "background": "#2D353B",
-    "foreground": "#D3C6AA",
-    "black": "#475054",
-    "red": "#E67E80",
-    "green": "#A7C080",
-    "yellow": "#DBBC7F",
-    "blue": "#7FBBB3",
-    "purple": "#D699B6",
-    "cyan": "#83C092",
-    "white": "#D3C6AA",
-    "brightBlack": "#475054",
-    "brightRed": "#E67E80",
-    "brightGreen": "#A7C080",
-    "brightYellow": "#DBBC7F",
-    "brightBlue": "#7FBBB3",
-    "brightPurple": "#D699B6",
-    "brightCyan": "#83C092",
-    "brightWhite": "#D3C6AA"
+    "name": "Rosé Pine Dawn (Pinker)",
+    "background": "#f5e6eb",
+    "foreground": "#575279",
+    "cursorColor": "#9893a5",
+    "selectionBackground": "#dfdad9",
+    "black": "#f2e9e1",
+    "red": "#b4637a",
+    "green": "#286983",
+    "yellow": "#a67500",
+    "blue": "#205798",
+    "purple": "#7a4b85",
+    "cyan": "#025763",
+    "white": "#575279",
+    "brightBlack": "#797593",
+    "brightRed": "#b4637a",
+    "brightGreen": "#286983",
+    "brightYellow": "#ea9d34",
+    "brightBlue": "#56949f",
+    "brightPurple": "#907aa9",
+    "brightCyan": "#d7827e",
+    "brightWhite": "#575279"
 }
 ```
 
-Then set `"colorScheme": "Everforest"` in your Debian profile.
+Then set `"colorScheme": "Rosé Pine Dawn (Pinker)"` in your Debian profile.
 
 </details>
 
