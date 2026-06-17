@@ -3,7 +3,7 @@
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="bira"
+ZSH_THEME=""
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
@@ -18,3 +18,9 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # export DEEPSEEK_API_KEY=""
 # export ANDROID_HOME=""
 # export PATH="$PATH:$ANDROID_HOME/platform-tools"
+
+# Display system info on startup
+fastfetch --logo ~/.config/my_ascii_art.txt
+
+# Initialize Starship prompt
+eval "$(starship init zsh)"

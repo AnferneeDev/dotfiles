@@ -1,31 +1,17 @@
 return {
-  -- Configure Neo-tree to show dotfiles and hidden folders
+  -- Configure Neo-tree to show dotfiles and gitignored files by extending default opts
   {
     "nvim-neo-tree/neo-tree.nvim",
-    opts = {
-      filesystem = {
-        filtered_items = {
-          visible = true, -- Show filtered items
-          hide_dotfiles = false, -- Do not hide dotfiles
-          hide_gitignored = false, -- Do not hide gitignored files
-        },
-      },
-    },
-  },
-
-  -- Configure Telescope to include hidden files in search
-  {
-    "nvim-telescope/telescope.nvim",
     opts = function(_, opts)
-      local telescope = require("telescope")
-      opts.defaults = opts.defaults or {}
-      opts.defaults.find_command = {
-        "rg",
-        "--files",
-        "--hidden",
-        "--glob",
-        "!**/.git/*",
-      }
+      opts.filesystem = opts.filesystem or {}
+      opts.filesystem.filtered_items = opts.filesystem.filtered_items or {}
+      
+      -- Set visibility and ensure nothing is hidden
+      opts.filesystem.filtered_items.visible = true
+      opts.filesystem.filtered_items.hide_dotfiles = false
+      opts.filesystem.filtered_items.hide_gitignored = false
+      opts.filesystem.filtered_items.hide_hidden = false
+      
       return opts
     end,
   },

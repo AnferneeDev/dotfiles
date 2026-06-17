@@ -26,6 +26,7 @@
       - zsh
       - tmux
       - fontconfig
+      - fastfetch
     state: present
   when: ansible_os_family == "Debian"
 
