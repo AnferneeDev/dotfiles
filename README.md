@@ -1,6 +1,12 @@
 # Anfernee's Dotfiles
 
-> One command. Any Debian/Ubuntu machine. Ready to code.
+<p align="center">
+  <img src="https://img.shields.io/badge/platform-debian%20%7C%20ubuntu%20%7C%20al2023-E95420?style=flat-square" alt="Platform">
+  <img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="License">
+  <img src="https://img.shields.io/badge/automation-ansible-red?style=flat-square" alt="Ansible">
+</p>
+
+> One command. Any machine. Ready to code.
 
 ## Quick Start
 
@@ -13,6 +19,12 @@ This will:
 2. Clone this repo to `~/dotfiles`
 3. Run the Ansible playbook (asks for sudo password once)
 4. Configure your entire dev environment
+
+## Why This Exists
+
+- **Laptop died? New job?** → One command and you're back.
+- **WSL fresh install?** → Same dotfiles, same experience.
+- **Colleague wants your setup?** → They run the same one-liner.
 
 ## What's Included
 
