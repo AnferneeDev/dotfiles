@@ -42,6 +42,15 @@ This will:
 | **Git** | Custom aliases, global gitignore (AI files, logs, keys) |
 | **Tools** | LazyGit, OpenCode |
 
+## Supported Platforms
+
+| OS | Version | Status |
+|:---|---:|:---|
+| Debian | 11+ | Tested |
+| Ubuntu | 20.04+ | Tested |
+| Amazon Linux 2023 | AL2023 | Tested |
+| RedHat | 8+ | Tested |
+
 ## Ansible Roles
 
 Roles run in this order:
@@ -55,6 +64,25 @@ Roles run in this order:
 6. node     → NVM + Node.js 20
 7. neovim   → Neovim + full LazyVim config + Rosé Pine Dawn
 8. tools    → uv, lazygit, bun, opencode config
+```
+
+## Repository Structure
+
+```
+dotfiles/
+├── playbook.yml          # Main Ansible playbook
+├── setup.sh              # One-liner bootstrap script
+├── roles/
+│   ├── base/             # Core system packages
+│   ├── fonts/            # Nerd Font installation
+│   ├── zsh/              # Shell config + themes
+│   ├── git/              # Git aliases + ignore rules
+│   ├── tmux/             # Terminal multiplexer
+│   ├── node/             # NVM + Node.js
+│   ├── neovim/           # Editor + LazyVim
+│   └── tools/            # uv, lazygit, bun, opencode
+└── .config/
+    └── opencode/         # OpenCode AI configuration
 ```
 
 ## Post-Install (Manual)
