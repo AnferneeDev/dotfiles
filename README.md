@@ -32,6 +32,7 @@ This will:
 |:----------|:--------|
 | **Shell** | Zsh + Oh My Zsh (plugins) + Starship prompt |
 | **Plugins** | `zsh-autosuggestions`, `zsh-syntax-highlighting` |
+| **Theme** | Rosé Pine Dawn (Neovim, Terminal) + Starship custom preset |
 | **Editor** | Neovim + LazyVim (colorscheme: Rosé Pine Dawn) |
 | **Multiplexer** | Tmux (prefix: `Ctrl+Space`, vim keybinds) |
 | **Font** | JetBrains Mono Nerd Font |
