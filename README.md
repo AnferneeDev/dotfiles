@@ -30,9 +30,8 @@ This will:
 
 | Component | Details |
 |:----------|:--------|
-| **Shell** | Zsh + Oh My Zsh (theme: `bira`) |
+| **Shell** | Zsh + Oh My Zsh (plugins) + Starship prompt |
 | **Plugins** | `zsh-autosuggestions`, `zsh-syntax-highlighting` |
-| **Custom Themes** | Sonokai Atlantis (`sanakai`, `sonokai`, `ys-dark`) |
 | **Editor** | Neovim + LazyVim (colorscheme: Rosé Pine Dawn) |
 | **Multiplexer** | Tmux (prefix: `Ctrl+Space`, vim keybinds) |
 | **Font** | JetBrains Mono Nerd Font |
@@ -58,7 +57,7 @@ Roles run in this order:
 ```
 1. base     → Core packages (curl, git, zsh, tmux, ripgrep, fd-find...)
 2. fonts    → JetBrains Mono Nerd Font
-3. zsh      → Oh My Zsh + plugins + custom themes + .zshrc
+3. zsh      → Oh My Zsh + plugins + Starship prompt + .zshrc
 4. git      → .gitconfig + .gitignore_global
 5. tmux     → .tmux.conf (Ctrl+Space, vim splits, status styling)
 6. node     → NVM + Node.js 20
