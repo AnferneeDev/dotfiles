@@ -1,3 +1,5 @@
+-- THEME: Rosé Pine Dawn — https://rosepinetheme.com
+
 return {
   -- Add the rose-pine colorscheme plugin
   {
