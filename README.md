@@ -30,8 +30,7 @@ This will:
 
 | Component | Details |
 |:----------|:--------|
-| **Shell** | Zsh + Oh My Zsh (plugins) + Starship prompt |
-| **Plugins** | `zsh-autosuggestions`, `zsh-syntax-highlighting` |
+| **Shell** | Zsh + Starship prompt (zsh-autosuggestions, zsh-syntax-highlighting) |
 | **Theme** | Rosé Pine Dawn (Neovim, Terminal) + Starship custom preset |
 | **Editor** | Neovim + LazyVim (colorscheme: Rosé Pine Dawn) |
 | **Multiplexer** | Tmux (prefix: `Ctrl+Space`, vim keybinds) |
@@ -58,7 +57,7 @@ Roles run in this order:
 ```
 1. base     → Core packages (curl, git, zsh, tmux, ripgrep, fd-find...)
 2. fonts    → JetBrains Mono Nerd Font
-3. zsh      → Oh My Zsh + plugins + Starship prompt + .zshrc
+3. zsh      → Starship prompt + plugins + .zshrc
 4. git      → .gitconfig + .gitignore_global
 5. tmux     → .tmux.conf (Ctrl+Space, vim splits, status styling)
 6. node     → NVM + Node.js 20
@@ -75,7 +74,7 @@ dotfiles/
 ├── roles/
 │   ├── base/             # Core system packages
 │   ├── fonts/            # Nerd Font installation
-│   ├── zsh/              # Shell config + themes
+│   ├── zsh/              # Shell config + Starship prompt
 │   ├── git/              # Git aliases + ignore rules
 │   ├── tmux/             # Terminal multiplexer
 │   ├── node/             # NVM + Node.js
