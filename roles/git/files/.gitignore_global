@@ -9,6 +9,8 @@ opencode.json
 .cursor/
 .copilot/
 .copilot-instructions
+.gga
+.gga/
 
 # System files
 .DS_Store
@@ -25,3 +27,6 @@ yarn-error.*
 
 # Keys and certificates
 *.pem
+
+.atl
+AGENTS.md
