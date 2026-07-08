@@ -64,6 +64,36 @@
     backup: true
     mode: '0644'
 
+# --- OpenCode plugins ---
+- name: Create OpenCode plugins directory
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config/opencode/plugins"
+    state: directory
+    mode: '0755'
+
+- name: Deploy notification plugin
+  ansible.builtin.copy:
+    src: notification.js
+    dest: "{{ ansible_env.HOME }}/.config/opencode/plugins/notification.js"
+    mode: '0644'
+
+# --- CodeGraph ---
+- name: Check if codegraph is installed
+  ansible.builtin.shell: |
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+    npm list -g @colbymchenry/codegraph --depth=0
+  register: codegraph_check
+  changed_when: false
+  failed_when: false
+
+- name: Install codegraph globally
+  ansible.builtin.shell: |
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+    npm install -g @colbymchenry/codegraph@1.0.1
+  when: codegraph_check.rc != 0
+
 # --- LazyGit config directory ---
 - name: Create lazygit config directory
   ansible.builtin.file:
