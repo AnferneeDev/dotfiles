@@ -40,6 +40,7 @@ This will:
 | **JS Runtime** | Bun |
 | **Git** | Custom aliases, global gitignore (AI files, logs, keys) |
 | **Tools** | LazyGit, OpenCode |
+| **System Info** | fastfetch (custom ASCII logo) |
 
 ## Supported Platforms
 
@@ -55,7 +56,7 @@ This will:
 Roles run in this order:
 
 ```
-1. base     → Core packages (curl, git, zsh, tmux, ripgrep, fd-find...)
+1. base     → Core packages (curl, git, zsh, tmux, fastfetch, ripgrep, fd-find...)
 2. fonts    → JetBrains Mono Nerd Font
 3. zsh      → Starship prompt + plugins + .zshrc
 4. git      → .gitconfig + .gitignore_global
