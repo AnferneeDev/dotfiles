@@ -1,17 +1,17 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-# THEME: Pastel Powerline (official Starship preset, inspired by M365Princess)
+# THEME: Neon Pink Slate, matching the OpenCode neon-pink theme
 
 format = """
-[](#9A348E)\
+[](#ff0066)\
 $os\
 $username\
-[](bg:#DA627D fg:#9A348E)\
+[](bg:#ff2b7a fg:#ff0066)\
 $directory\
-[](fg:#DA627D bg:#FCA17D)\
+[](fg:#ff2b7a bg:#ffd400)\
 $git_branch\
 $git_status\
-[](fg:#FCA17D bg:#86BBD8)\
+[](fg:#ffd400 bg:#3d4854)\
 $c\
 $elixir\
 $elm\
@@ -26,11 +26,11 @@ $bun\
 $nim\
 $rust\
 $scala\
-[](fg:#86BBD8 bg:#06969A)\
+[](fg:#3d4854 bg:#35404b)\
 $docker_context\
-[](fg:#06969A bg:#33658A)\
+[](fg:#35404b bg:#2f3943)\
 $time\
-[ ](fg:#33658A)\
+[ ](fg:#2f3943)\
 """
 
 # Disable the blank line at the start of the prompt
@@ -40,19 +40,19 @@ $time\
 # and use the os module below
 [username]
 show_always = true
-style_user = "fg:#ffffff bg:#9A348E"
-style_root = "fg:#ffffff bg:#9A348E"
+style_user = "fg:#ffffff bg:#ff0066"
+style_root = "fg:#ffffff bg:#ff0066"
 format = '[$user ]($style)'
 disabled = false
 
 # An alternative to the username module which displays a symbol that
 # represents the current operating system
 [os]
-style = "fg:#ffffff bg:#9A348E"
+style = "fg:#ffffff bg:#ff0066"
 disabled = true # Disabled by default
 
 [directory]
-style = "fg:#ffffff bg:#DA627D"
+style = "fg:#ffffff bg:#ff2b7a"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -72,93 +72,93 @@ truncation_symbol = "…/"
 
 [c]
 symbol = " "
-style = "fg:#ffffff bg:#86BBD8"
+style = "fg:#ffffff bg:#3d4854"
 format = '[ $symbol ($version) ]($style)'
 
 [cpp]
 symbol = " "
-style = "fg:#ffffff bg:#86BBD8"
+style = "fg:#ffffff bg:#3d4854"
 format = '[ $symbol ($version) ]($style)'
 
 [docker_context]
 symbol = " "
-style = "fg:#ffffff bg:#06969A"
+style = "fg:#ffffff bg:#35404b"
 format = '[ $symbol $context ]($style)'
 
 [elixir]
 symbol = " "
-style = "fg:#ffffff bg:#86BBD8"
+style = "fg:#ffffff bg:#3d4854"
 format = '[ $symbol ($version) ]($style)'
 
 [elm]
 symbol = " "
-style = "fg:#ffffff bg:#86BBD8"
+style = "fg:#ffffff bg:#3d4854"
 format = '[ $symbol ($version) ]($style)'
 
 [git_branch]
 symbol = ""
-style = "fg:#ffffff bg:#FCA17D"
+style = "fg:#222226 bg:#ffd400"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "fg:#ffffff bg:#FCA17D"
+style = "fg:#222226 bg:#ffd400"
 format = '[$all_status$ahead_behind ]($style)'
 
 [golang]
 symbol = " "
-style = "fg:#ffffff bg:#86BBD8"
+style = "fg:#ffffff bg:#3d4854"
 format = '[ $symbol ($version) ]($style)'
 
 [gradle]
-style = "fg:#ffffff bg:#86BBD8"
+style = "fg:#ffffff bg:#3d4854"
 format = '[ $symbol ($version) ]($style)'
 
 [haskell]
 symbol = " "
-style = "fg:#ffffff bg:#86BBD8"
+style = "fg:#ffffff bg:#3d4854"
 format = '[ $symbol ($version) ]($style)'
 
 [java]
 symbol = " "
-style = "fg:#ffffff bg:#86BBD8"
+style = "fg:#ffffff bg:#3d4854"
 format = '[ $symbol ($version) ]($style)'
 
 [julia]
 symbol = " "
-style = "fg:#ffffff bg:#86BBD8"
+style = "fg:#ffffff bg:#3d4854"
 format = '[ $symbol ($version) ]($style)'
 
 [maven]
-style = "fg:#ffffff bg:#86BBD8"
+style = "fg:#ffffff bg:#3d4854"
 format = '[ $symbol ($version) ]($style)'
 
 [nodejs]
 symbol = ""
-style = "fg:#ffffff bg:#86BBD8"
+style = "fg:#ffffff bg:#3d4854"
 format = '[ $symbol ($version) ]($style)'
 
 [bun]
 symbol = ""
-style = "fg:#ffffff bg:#86BBD8"
+style = "fg:#ffffff bg:#3d4854"
 format = '[ $symbol ($version) ]($style)'
 
 [nim]
 symbol = "󰆥 "
-style = "fg:#ffffff bg:#86BBD8"
+style = "fg:#ffffff bg:#3d4854"
 format = '[ $symbol ($version) ]($style)'
 
 [rust]
 symbol = ""
-style = "fg:#ffffff bg:#86BBD8"
+style = "fg:#ffffff bg:#3d4854"
 format = '[ $symbol ($version) ]($style)'
 
 [scala]
 symbol = " "
-style = "fg:#ffffff bg:#86BBD8"
+style = "fg:#ffffff bg:#3d4854"
 format = '[ $symbol ($version) ]($style)'
 
 [time]
 disabled = false
 time_format = "%R" # Hour:Minute Format
-style = "fg:#ffffff bg:#33658A"
+style = "fg:#ffffff bg:#35404b"
 format = '[ ♥ $time ]($style)'

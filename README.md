@@ -108,36 +108,36 @@ aws configure
 If you're on WSL, add this color scheme to your Windows Terminal `settings.json`:
 
 <details>
-<summary>Rosé Pine Dawn (Pinker) — Windows Terminal scheme</summary>
+<summary>Neon Pink Slate — Windows Terminal scheme</summary>
 
 Add to `"schemes"` array:
 ```json
 {
-    "name": "Rosé Pine Dawn (Pinker)",
-    "background": "#f5e6eb",
-    "foreground": "#575279",
-    "cursorColor": "#9893a5",
-    "selectionBackground": "#dfdad9",
-    "black": "#f2e9e1",
-    "red": "#b4637a",
-    "green": "#286983",
-    "yellow": "#a67500",
-    "blue": "#205798",
-    "purple": "#7a4b85",
-    "cyan": "#025763",
-    "white": "#575279",
-    "brightBlack": "#797593",
-    "brightRed": "#b4637a",
-    "brightGreen": "#286983",
-    "brightYellow": "#ea9d34",
-    "brightBlue": "#56949f",
-    "brightPurple": "#907aa9",
-    "brightCyan": "#d7827e",
-    "brightWhite": "#575279"
+    "name": "Neon Pink Slate",
+    "background": "#2f3943",
+    "foreground": "#edf0f3",
+    "cursorColor": "#ff0066",
+    "selectionBackground": "#596573",
+    "black": "#2f3943",
+    "red": "#ff3b5c",
+    "green": "#67d98f",
+    "yellow": "#ffd400",
+    "blue": "#ff7aac",
+    "purple": "#ff2b7a",
+    "cyan": "#c92868",
+    "white": "#edf0f3",
+    "brightBlack": "#46515d",
+    "brightRed": "#ff5b74",
+    "brightGreen": "#89e6a8",
+    "brightYellow": "#ffd400",
+    "brightBlue": "#ff91b8",
+    "brightPurple": "#ff0066",
+    "brightCyan": "#ff7aac",
+    "brightWhite": "#ffffff"
 }
 ```
 
-Then set `"colorScheme": "Rosé Pine Dawn (Pinker)"` in your Debian profile.
+Then set `"colorScheme": "Neon Pink Slate"` in your Debian profile.
 
 </details>
 
