@@ -1,0 +1,81 @@
+Tailcat Windows to Debian/WSL
+============================
+
+Tailcat creates an encrypted tunnel through DERP relays, allowing SSH to a
+Debian/WSL machine behind NAT or a firewall without a public IP.
+
+SERVER: Debian/WSL
+------------------
+
+Install Tailcat from the official releases or with Go:
+
+    go install github.com/tailscale/tailcat/cmd/tailcat@latest
+
+Generate a persistent server identity once. Keep the printed address private;
+do not commit it to this repository:
+
+    tailcat genkey --key=wsl-ssh --fixed-region --embed-derp-map
+
+The private key is saved at:
+
+    ~/.config/tailcat/keys/wsl-ssh.private.json
+
+Start the server manually when needed:
+
+    tailcat --key=wsl-ssh --serve=no-auth-ssh
+
+For automatic startup with systemd, create a user service at
+~/.config/systemd/user/tailcat-ssh.service:
+
+    [Unit]
+    Description=Tailcat SSH server
+    After=default.target
+
+    [Service]
+    ExecStart=/home/USER/go/bin/tailcat --key=wsl-ssh --serve=no-auth-ssh
+    Restart=always
+    RestartSec=5
+
+    [Install]
+    WantedBy=default.target
+
+Replace USER and the Tailcat path for the machine. Enable it with:
+
+    systemctl --user daemon-reload
+    systemctl --user enable --now tailcat-ssh.service
+
+On Windows, add a startup script containing the following command to the
+user Startup folder so WSL starts the service at login:
+
+    wsl.exe -d Debian --user USER --exec /usr/bin/systemctl --user start tailcat-ssh.service
+
+CLIENT: Windows, WSL, or Linux
+------------------------------
+
+Install the Tailcat client and add this to ~/.ssh/config (or
+%USERPROFILE%\\.ssh\\config on Windows):
+
+    Host wslt
+        HostName dummy
+        User USER
+        ProxyCommand tailcat YOUR_FIXED_TAILCAT_ADDRESS 22
+
+Replace USER and YOUR_FIXED_TAILCAT_ADDRESS with the server user and the
+address printed by genkey. Connect with:
+
+    ssh wslt
+
+CLI TOOLS
+---------
+
+OpenCode configuration is included at roles/tools/files/opencode.json and its
+shell path is configured in the zsh role. Install the OpenCode CLI using its
+official installer, then verify it with:
+
+    opencode --version
+
+The agy CLI is an external user-installed tool. Verify it with:
+
+    agy --version
+
+Never commit API keys, Tailcat private keys, or real Tailcat address blobs.
