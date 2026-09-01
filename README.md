@@ -39,7 +39,7 @@ This will:
 | **Python** | uv (Astral) |
 | **JS Runtime** | Bun |
 | **Git** | Custom aliases, global gitignore (AI files, logs, keys) |
-| **Tools** | LazyGit, OpenCode |
+| **Tools** | LazyGit, OpenCode, RTK, LeanCTX |
 | **System Info** | fastfetch (custom ASCII logo) |
 
 ## Supported Platforms
@@ -63,7 +63,7 @@ Roles run in this order:
 5. tmux     → .tmux.conf (Ctrl+Space, vim splits, status styling)
 6. node     → NVM + Node.js 20
 7. neovim   → Neovim + full LazyVim config + Rosé Pine Dawn
-8. tools    → uv, lazygit, bun, opencode config
+8. tools    → uv, lazygit, bun, RTK, LeanCTX, opencode config
 ```
 
 ## Repository Structure
@@ -102,6 +102,18 @@ aws configure
 # 4. Log in to AI tools
 # claude, copilot, ngrok, etc.
 ```
+
+## AI Context Tools
+
+The tools role installs the RTK and LeanCTX binaries without changing agent configuration.
+Configure them for the agents you use after installation:
+
+```bash
+lean-ctx init --agent opencode
+rtk init --agent antigravity
+```
+
+RTK's Antigravity integration is project-scoped, so run its initialization from each project that should use it.
 
 ## Windows Terminal (WSL)
 

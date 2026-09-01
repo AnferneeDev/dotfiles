@@ -30,3 +30,5 @@ yarn-error.*
 
 .atl
 AGENTS.md
+LEAN-CTX.md
+.agents/

@@ -50,6 +50,34 @@
     creates: "{{ ansible_env.HOME }}/.bun/bin/bun"
   when: bun_check.rc != 0
 
+# --- RTK ---
+- name: Check if RTK is installed
+  ansible.builtin.command: "{{ ansible_env.HOME }}/.local/bin/rtk --version"
+  register: rtk_check
+  changed_when: false
+  failed_when: false
+
+- name: Install RTK
+  ansible.builtin.shell: curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/refs/heads/master/install.sh | sh
+  args:
+    creates: "{{ ansible_env.HOME }}/.local/bin/rtk"
+  when: rtk_check.rc != 0
+
+# --- LeanCTX ---
+- name: Check if LeanCTX is installed
+  ansible.builtin.command: "{{ ansible_env.HOME }}/.local/bin/lean-ctx --version"
+  register: lean_ctx_check
+  changed_when: false
+  failed_when: false
+
+- name: Install LeanCTX without agent onboarding
+  ansible.builtin.shell: |
+    curl -fsSL https://leanctx.com/install.sh -o /tmp/lean-ctx-install.sh
+    LEAN_CTX_NO_ONBOARD=1 LEAN_CTX_NO_PATH_FIX=1 sh /tmp/lean-ctx-install.sh --download
+  args:
+    creates: "{{ ansible_env.HOME }}/.local/bin/lean-ctx"
+  when: lean_ctx_check.rc != 0
+
 # --- OpenCode config ---
 - name: Create OpenCode config directory
   ansible.builtin.file:
@@ -126,4 +154,3 @@
   become: true
   ansible.builtin.shell: curl -sS https://starship.rs/install.sh | sh -s -- --yes
   when: starship_check.rc != 0
-
