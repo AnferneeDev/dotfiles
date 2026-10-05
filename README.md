@@ -120,13 +120,16 @@ RTK's Antigravity integration is project-scoped, so run its initialization from 
 The tools role installs [cclimits](https://github.com/cruzanstx/cclimits) and a `quota` command that prints the remaining 5-hour and weekly limits of Claude, Codex and Gemini (Antigravity) with their reset times:
 
 ```
-CLAUDE  [5h:  93% ↻4h16m] [W:   1% ↻8h26m]
-CODEX   [5h:  80% ↻41m]   [W:  34% ↻4d23h]
-GEMINI  [5h:  99% ↻4h47m] [W:  90% ↻1d23h]
-GEM-C/G [5h:   0% ↻4h3m]  [W:  27% ↻5d10h]
+CLAUDE
+  5h      93%  ↻ 4h16m
+  Week     1%  ↻ 8h26m
+
+CODEX
+  5h      80%  ↻ 41m
+  Week    34%  ↻ 4d23h
 ```
 
-Percentages are what remains. `quota` reads each CLI's own login, so run `claude`, `codex login` and `agy` once first. `GEM-C/G` is the Claude/GPT quota group inside Antigravity.
+Percentages are what remains and `↻` is the time until the reset. `quota` reads each CLI's own login, so run `claude`, `codex login` and `agy` once first. `GEMINI C/GPT` is the Claude/GPT quota group inside Antigravity.
 
 ## Windows Terminal (WSL)
 
