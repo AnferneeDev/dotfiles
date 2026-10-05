@@ -122,6 +122,34 @@
     npm install -g @colbymchenry/codegraph@1.0.1
   when: codegraph_check.rc != 0
 
+- name: Check if cclimits is installed
+  ansible.builtin.shell: |
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+    npm list -g cclimits --depth=0
+  register: cclimits_check
+  changed_when: false
+  failed_when: false
+
+- name: Install cclimits globally
+  ansible.builtin.shell: |
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+    npm install -g cclimits@1.7.2
+  when: cclimits_check.rc != 0
+
+- name: Deploy quota command
+  ansible.builtin.copy:
+    src: quota
+    dest: "{{ ansible_env.HOME }}/.local/bin/quota"
+    mode: '0755'
+
+- name: Deploy quota formatter
+  ansible.builtin.copy:
+    src: quota-format.py
+    dest: "{{ ansible_env.HOME }}/.local/bin/quota-format.py"
+    mode: '0644'
+
 # --- LazyGit config directory ---
 - name: Create lazygit config directory
   ansible.builtin.file:

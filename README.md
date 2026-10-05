@@ -39,7 +39,7 @@ This will:
 | **Python** | uv (Astral) |
 | **JS Runtime** | Bun |
 | **Git** | Custom aliases, global gitignore (AI files, logs, keys) |
-| **Tools** | LazyGit, OpenCode, RTK, LeanCTX |
+| **Tools** | LazyGit, OpenCode, RTK, LeanCTX, cclimits (`quota`) |
 | **System Info** | fastfetch (custom ASCII logo) |
 
 ## Supported Platforms
@@ -114,6 +114,19 @@ rtk init --agent antigravity
 ```
 
 RTK's Antigravity integration is project-scoped, so run its initialization from each project that should use it.
+
+## AI Quota
+
+The tools role installs [cclimits](https://github.com/cruzanstx/cclimits) and a `quota` command that prints the remaining 5-hour and weekly limits of Claude, Codex and Gemini (Antigravity) with their reset times:
+
+```
+CLAUDE  [5h:  93% ↻4h16m] [W:   1% ↻8h26m]
+CODEX   [5h:  80% ↻41m]   [W:  34% ↻4d23h]
+GEMINI  [5h:  99% ↻4h47m] [W:  90% ↻1d23h]
+GEM-C/G [5h:   0% ↻4h3m]  [W:  27% ↻5d10h]
+```
+
+Percentages are what remains. `quota` reads each CLI's own login, so run `claude`, `codex login` and `agy` once first. `GEM-C/G` is the Claude/GPT quota group inside Antigravity.
 
 ## Windows Terminal (WSL)
 

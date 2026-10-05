@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -uo pipefail
+raw="$(timeout 25 cclimits --json --claude --codex --antigravity 2>/dev/null)" || { echo "cclimits failed"; exit 1; }
+printf "%s" "$raw" | python3 "$(dirname "$(readlink -f "$0")")/quota-format.py"
