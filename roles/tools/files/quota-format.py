@@ -1,9 +1,6 @@
 import json
 import sys
 
-LABEL_WIDTH = 7
-CELL_WIDTH = 17
-
 data = json.load(sys.stdin)
 
 
@@ -15,17 +12,17 @@ def short_reset(resets_in):
     return "".join(resets_in.split())
 
 
-def cell(tag, used, resets_in):
+def detail(tag, used, resets_in):
     remaining = max(0.0, min(100.0, 100 - used_percent(used)))
-    return f"[{tag}:{remaining:4.0f}% ↻{short_reset(resets_in)}]"
+    return f"  {tag:<6}{remaining:4.0f}%  ↻ {short_reset(resets_in)}"
 
 
 def row(label, five_hour, weekly):
-    return f"{label.ljust(LABEL_WIDTH)} {cell('5h', *five_hour).ljust(CELL_WIDTH)} {cell('W', *weekly)}"
+    return "\n".join([label, detail("5h", *five_hour), detail("Week", *weekly)])
 
 
 def unavailable(label):
-    return f"{label.ljust(LABEL_WIDTH)} unavailable"
+    return f"{label}\n  unavailable"
 
 
 rows = []
@@ -54,7 +51,7 @@ agy = data.get("antigravity", {})
 if agy.get("status") == "ok":
     for group in agy.get("quota_groups", []):
         buckets = group["buckets"]
-        label = "GEMINI" if group["short_name"] == "Gemini" else "GEM-C/G"
+        label = "GEMINI" if group["short_name"] == "Gemini" else "GEMINI C/GPT"
         rows.append(row(
             label,
             (buckets["5h"]["used_pct"], buckets["5h"]["resets_in"]),
@@ -63,4 +60,4 @@ if agy.get("status") == "ok":
 else:
     rows.append(unavailable("GEMINI"))
 
-print("\n".join(rows))
+print("\n\n".join(rows))
